@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Java Debug Lab：用清楚的錯誤與正確範例，學懂 Java 初學者常見問題。">
+  <title>Java Debug Lab｜從錯誤開始，真正學會 Java</title>
+  <link rel="stylesheet" href="./assets/style.css">
+  <script src="./assets/app.js" defer></script>
+</head>
+<body data-page="home">
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a class="brand" href="./index.html" aria-label="Java Debug Lab 首頁">
+        <span class="brand-mark" aria-hidden="true">{ }</span>
+        <span>Java <strong>Debug</strong> Lab</span>
+      </a>
+      <nav class="top-nav" aria-label="主要導覽">
+        <a class="active" aria-current="page" href="./index.html">錯誤圖鑑</a>
+        <a href="#how-it-works">學習方式</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero container" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <span class="eyebrow"><span class="eyebrow-dot"></span> YOUR FRIENDLY JAVA DEBUG GUIDE</span>
+        <h1 id="hero-title">寫錯也沒關係，<br><span>理解才是最重要的。</span></h1>
+        <p>Java 的錯誤不該只是紅字警告。從常見問題、錯誤範例到正確寫法，一次搞懂背後的程式觀念。</p>
+        <a class="primary-link" href="#library">開始探索錯誤圖鑑 <span aria-hidden="true">↗</span></a>
+        <div class="hero-meta"><span>◉ 初學者友善</span><span>⌘ 實際程式範例</span><span>✓ 繁體中文解說</span></div>
+      </div>
+      <div class="hero-art" aria-label="Java 程式碼問題與修正範例示意" role="img">
+        <div class="art-top"><span class="art-dots">● ● ●</span><span>DebugExample.java</span><span>↗</span></div>
+        <div class="art-code"><span class="ln">01</span><span class="c-blue">if</span> (a <span class="c-orange">==</span> b) {</div>
+        <div class="art-code"><span class="ln">02</span>　System.out.println(<span class="c-green">"same"</span>);</div>
+        <div class="art-code"><span class="ln">03</span>}</div>
+        <div class="art-feedback bad"><span>×</span> 常見錯誤：比較物件參照</div>
+        <div class="art-feedback good"><span>✓</span> 試試改用 <code>a.equals(b)</code></div>
+        <div class="art-tag">LEARN · FIX · UNDERSTAND</div>
+      </div>
+    </section>
+
+    <section class="library-section" id="library" aria-labelledby="library-title">
+      <div class="container">
+        <div class="section-top">
+          <div><p class="overline">ERROR ENCYCLOPEDIA</p><h2 id="library-title">常見錯誤圖鑑 <span class="count-pill" id="article-count">—</span></h2><p class="section-subtitle">從小地方開始，累積紮實的 Java 基礎。</p></div>
+          <div class="library-decoration" aria-hidden="true">01 / 02 / 03</div>
+        </div>
+        <div class="control-bar">
+          <label class="search-box" for="search-input"><span aria-hidden="true">⌕</span><input id="search-input" type="search" placeholder="搜尋觀念、程式碼或關鍵字..." autocomplete="off"><span class="search-hint">搜尋</span></label>
+          <div class="category-row" id="category-filters" role="group" aria-label="文章分類"></div>
+        </div>
+        <p class="results-status" id="results-status" role="status" aria-live="polite"></p>
+        <div class="article-grid" id="article-grid" aria-label="教學文章列表"></div>
+        <div class="empty-state" id="empty-state" hidden><div class="empty-icon">?</div><h3>沒有找到符合的文章</h3><p>換個關鍵字或選擇「全部」分類試試看。</p><button type="button" id="reset-filters" class="outline-button">清除搜尋條件</button></div>
+      </div>
+    </section>
+
+    <section class="how-section container" id="how-it-works" aria-labelledby="how-title">
+      <div class="how-intro"><span class="overline">HOW TO LEARN</span><h2 id="how-title">每篇教學，<br>都用一樣好懂的節奏。</h2><p>不是背下正確答案，而是知道程式為什麼這樣運作。</p></div>
+      <div class="steps-grid">
+        <div class="step-card"><span class="step-no">01</span><h3>觀察錯誤</h3><p>先看會出現什麼問題，理解常見的錯誤寫法。</p></div>
+        <div class="step-card"><span class="step-no">02</span><h3>比較寫法</h3><p>對照錯誤與正確程式碼，找出關鍵差異。</p></div>
+        <div class="step-card"><span class="step-no">03</span><h3>理解原因</h3><p>用初學者能懂的方式，掌握背後的 Java 觀念。</p></div>
+      </div>
+    </section>
+  </main>
+  <footer class="site-footer"><div class="container footer-wrap"><span class="brand mini"><span class="brand-mark" aria-hidden="true">{ }</span> Java <strong>Debug</strong> Lab</span><span>用好奇心 Debug，用理解力成長。 · 學習用途</span></div></footer>
+</body>
+</html>

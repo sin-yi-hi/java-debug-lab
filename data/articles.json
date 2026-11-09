@@ -1,0 +1,94 @@
+{
+  "version": 1,
+  "categories": ["字串與資料型別", "條件判斷", "迴圈控制"],
+  "articles": [
+    {
+      "id": "string-equals",
+      "title": "String 的 == 與 equals() 有什麼不同？",
+      "category": "字串與資料型別",
+      "errorType": "邏輯錯誤",
+      "minutes": 3,
+      "summary": "明明兩個字串都是 Java，為什麼用 == 比較卻得到 false？",
+      "symptom": "你想比較兩個字串的文字內容是否相同，卻發現使用 == 時輸出「不同」。這不是 Java 壞掉，而是比較的對象不同。",
+      "wrongCode": "public class Main {\n    public static void main(String[] args) {\n        String a = new String(\"Java\");\n        String b = new String(\"Java\");\n\n        System.out.println(a == b); // false\n    }\n}",
+      "correctCode": "public class Main {\n    public static void main(String[] args) {\n        String a = new String(\"Java\");\n        String b = new String(\"Java\");\n\n        System.out.println(a.equals(b)); // true\n    }\n}",
+      "explanation": [
+        "對於 String 這類參考型別，== 比較的是兩個變數是否參照同一個物件；equals() 在 String 類別中則是用來比較字串內容。",
+        "這裡刻意使用兩次 new String(\"Java\")，建立不同的 String 物件，因此 a == b 為 false，但兩個物件包含相同文字，a.equals(b) 為 true。",
+        "補充：如果 a 可能是 null，直接使用 a.equals(b) 會發生 NullPointerException。可以考慮使用 Objects.equals(a, b) 來安全地比較可能為 null 的字串。"
+      ],
+      "takeaways": [
+        "比較 String 的文字內容，通常使用 equals()。",
+        "== 對參考型別比較是否參照同一個物件。",
+        "比較前注意 null，避免 NullPointerException。"
+      ],
+      "tags": ["String", "==", "equals", "reference", "字串"]
+    },
+    {
+      "id": "switch-break",
+      "title": "switch 少了 break，為什麼一直執行？",
+      "category": "條件判斷",
+      "errorType": "邏輯錯誤",
+      "minutes": 3,
+      "summary": "只符合 case 1，卻連 case 2 和 default 都輸出？了解 fall-through 的行為。",
+      "symptom": "你用傳統 switch 語法判斷 level，明明 level 是 1，程式卻不只顯示「初學者」，還繼續顯示其他訊息。",
+      "wrongCode": "public class Main {\n    public static void main(String[] args) {\n        int level = 1;\n        switch (level) {\n            case 1:\n                System.out.println(\"初學者\");\n            case 2:\n                System.out.println(\"進階者\");\n            default:\n                System.out.println(\"其他\");\n        }\n    }\n}",
+      "correctCode": "public class Main {\n    public static void main(String[] args) {\n        int level = 1;\n        switch (level) {\n            case 1:\n                System.out.println(\"初學者\");\n                break;\n            case 2:\n                System.out.println(\"進階者\");\n                break;\n            default:\n                System.out.println(\"其他\");\n        }\n    }\n}",
+      "explanation": [
+        "傳統的 switch 陳述式會先找到符合的 case，然後從該位置往下執行。如果沒有遇到 break、return 等可結束或離開流程的敘述，就可能繼續執行後面的 case，這稱為 fall-through（穿透執行）。",
+        "錯誤範例中，level 為 1，執行結果依序為「初學者」、「進階者」、「其他」。補上 break 後，執行 case 1 的內容就會離開 switch，只輸出「初學者」。",
+        "補充：有時候會刻意利用 fall-through；而 Java 的箭頭式 switch label（case 1 ->）不會像傳統冒號語法一樣穿透。"
+      ],
+      "takeaways": [
+        "傳統 switch 的 case 不會自動停止。",
+        "如果不希望繼續執行後面的 case，記得依需求使用 break。",
+        "少了 break 通常不是編譯錯誤，而是可能造成非預期輸出的邏輯錯誤。"
+      ],
+      "tags": ["switch", "case", "break", "fall-through", "條件"]
+    },
+    {
+      "id": "while-infinite-loop",
+      "title": "while 為什麼會變成無限迴圈？",
+      "category": "迴圈控制",
+      "errorType": "邏輯錯誤",
+      "minutes": 3,
+      "summary": "忘記更新迴圈變數，條件就永遠成立。學會正確讓迴圈停止。",
+      "symptom": "你本來只想輸出數字 1、2、3，卻發現程式一直重複印出 1，無法自然結束。執行此類範例時，請記得手動停止程式。",
+      "wrongCode": "public class Main {\n    public static void main(String[] args) {\n        int i = 1;\n        while (i <= 3) {\n            System.out.println(i);\n            // 忘記更新 i，會一直印出 1\n        }\n    }\n}",
+      "correctCode": "public class Main {\n    public static void main(String[] args) {\n        int i = 1;\n        while (i <= 3) {\n            System.out.println(i);\n            i++; // 每次增加 1\n        }\n    }\n}",
+      "explanation": [
+        "while 會在每次進入迴圈之前檢查條件。只要 i <= 3 是 true，就會一直執行大括號中的程式。",
+        "錯誤範例將 i 設成 1 之後，卻從未更動 i，因此條件永遠成立，不會自然跳出迴圈。",
+        "正確範例在每次輸出後使用 i++，讓 i 依序變成 2、3、4。當 i 是 4 時，i <= 3 為 false，迴圈就結束了。"
+      ],
+      "takeaways": [
+        "設計迴圈時，要能說明什麼條件會讓它停止。",
+        "確認迴圈內有機會改變判斷條件，或有其他適當的退出機制。",
+        "看到無限迴圈時，優先檢查條件與迴圈變數是否更新。"
+      ],
+      "tags": ["while", "loop", "i++", "無限迴圈", "迴圈"]
+    },
+    {
+      "id": "for-loop-condition",
+      "title": "Java for 迴圈常見錯誤：迴圈條件寫錯",
+      "category": "迴圈控制",
+      "errorType": "邏輯錯誤",
+      "minutes": 3,
+      "summary": "想印出 1 到 5，卻在 4 就停了？用這個例子分清楚 < 和 <= 何時會包含上限。",
+      "symptom": "你想讓 for 迴圈逐行印出 1 到 5，卻把條件寫成 i < 5。程式可以正常編譯並結束，但只印出 1、2、3、4，少了最後的 5。",
+      "wrongCode": "public class Main {\n    public static void main(String[] args) {\n        for (int i = 1; i < 5; i++) {\n            System.out.println(i);\n        }\n    }\n}",
+      "correctCode": "public class Main {\n    public static void main(String[] args) {\n        for (int i = 1; i <= 5; i++) {\n            System.out.println(i);\n        }\n    }\n}",
+      "explanation": [
+        "for 先將 i 設為 1，每次進入迴圈本體前都會檢查條件。條件為 true 才會印出 i，印完後執行 i++，再檢查下一次的條件。",
+        "錯誤範例印完 4 後，i++ 讓 i 變成 5。此時 i < 5 為 false，迴圈就結束了。改成 i <= 5 後，i 等於 5 時條件仍為 true，所以會印出 5，直到 i 變成 6 才結束。",
+        "如果從索引 0 走訪長度為 n 的陣列，有效索引到 n - 1 為止，條件應寫成 i < n。當 n 為 0 時，這個條件一開始就是 false，迴圈會執行 0 次。"
+      ],
+      "takeaways": [
+        "先寫出第一個和最後一個要處理的值，再決定條件是否包含上限。",
+        "把最後一個應該處理的值和下一個值代入條件，確認前者為 true、後者為 false。",
+        "從索引 0 走訪長度為 n 的陣列時，用 i < n 把索引限制在 0 到 n - 1。"
+      ],
+      "tags": ["for", "off-by-one", "迴圈條件", "邊界值"]
+    }
+  ]
+}

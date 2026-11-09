@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Java Debug Lab 教學文章：比較常見錯誤、正確寫法與觀念說明。">
+  <title>文章教學｜Java Debug Lab</title>
+  <link rel="stylesheet" href="./assets/style.css">
+  <script src="./assets/app.js" defer></script>
+</head>
+<body data-page="article">
+  <header class="site-header"><div class="container nav-wrap"><a class="brand" href="./index.html"><span class="brand-mark" aria-hidden="true">{ }</span><span>Java <strong>Debug</strong> Lab</span></a><nav class="top-nav" aria-label="主要導覽"><a href="./index.html">錯誤圖鑑</a><a href="./index.html#how-it-works">學習方式</a></nav></div></header>
+  <main class="container detail-main">
+    <a href="./index.html#library" class="back-link">← 返回錯誤圖鑑</a>
+    <div id="article-loading" class="loading-state" role="status">文章載入中...</div>
+    <div id="article-error" class="empty-state detail-error" hidden><div class="empty-icon">!</div><h1>找不到這篇教學</h1><p>可能是網址不正確，或這篇文章尚未建立。</p><a href="./index.html" class="outline-button">返回首頁</a></div>
+    <article id="article-content" hidden>
+      <div class="detail-hero"><p class="overline">JAVA DEBUG NOTE</p><div class="detail-meta" id="detail-meta"></div><h1 id="detail-title"></h1><p id="detail-summary" class="detail-summary"></p></div>
+      <div class="detail-layout">
+        <div class="detail-body">
+          <section class="detail-section" aria-labelledby="symptom-title"><div class="section-heading"><span class="section-index">01</span><h2 id="symptom-title">發生了什麼事？</h2></div><p id="detail-symptom" class="detail-paragraph"></p></section>
+          <section class="detail-section" aria-labelledby="code-title"><div class="section-heading"><span class="section-index">02</span><h2 id="code-title">錯誤與正確寫法</h2></div><div class="code-stack"><div class="code-card wrong"><div class="code-head"><span><span class="code-indicator">×</span> 常見錯誤寫法</span><button class="copy-button" type="button" data-copy="wrong" aria-label="複製錯誤程式碼">複製程式碼</button></div><pre><code id="detail-wrong"></code></pre></div><div class="code-card right"><div class="code-head"><span><span class="code-indicator">✓</span> 修正後的寫法</span><button class="copy-button" type="button" data-copy="correct" aria-label="複製正確程式碼">複製程式碼</button></div><pre><code id="detail-correct"></code></pre></div></div></section>
+          <section class="detail-section" aria-labelledby="reason-title"><div class="section-heading"><span class="section-index">03</span><h2 id="reason-title">為什麼會這樣？</h2></div><div class="explanation" id="detail-explanation"></div></section>
+          <section class="detail-section" aria-labelledby="takeaway-title"><div class="section-heading"><span class="section-index">04</span><h2 id="takeaway-title">這篇要記住的事</h2></div><ul class="takeaways" id="detail-takeaways"></ul></section>
+          <div class="detail-next" id="detail-next"></div>
+        </div>
+        <aside class="detail-sidebar" aria-label="文章導覽"><div class="sidebar-card"><p class="sidebar-label">THIS LESSON</p><h3>學習路線</h3><ol><li><a href="#symptom-title">發生了什麼事？</a></li><li><a href="#code-title">錯誤與正確寫法</a></li><li><a href="#reason-title">為什麼會這樣？</a></li><li><a href="#takeaway-title">這篇要記住的事</a></li></ol><div class="side-tip">TIP <p>試著自己修改範例，再觀察執行結果，會記得更牢。</p></div></div></aside>
+      </div>
+    </article>
+  </main>
+  <footer class="site-footer"><div class="container footer-wrap"><span class="brand mini"><span class="brand-mark" aria-hidden="true">{ }</span> Java <strong>Debug</strong> Lab</span><span>把錯誤變成下一次的進步。 · 學習用途</span></div></footer>
+  <div id="toast" class="toast" role="status" aria-live="polite" hidden></div>
+</body>
+</html>
